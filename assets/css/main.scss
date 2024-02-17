@@ -1,0 +1,367 @@
+$dropboxBlue: #2f70df;
+$dropGray: #c1c7cd;
+$dropAsh: #637282;
+$dropbg: #2f93ce;
+
+@font-face {
+  font-family: AtlasGrotesk;
+  src: url("../fonts/AtlasGrotesk-Light.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: AtlasGrotesk;
+  src: url("../fonts/AtlasGrotesk-Bold.otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: SharpGrotesk;
+  src: url("../fonts/SharpGrotesk.eot"), url("../fonts/SharpGrotesk.ttf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: AtlasGrotesk;
+  font-size: 14px;
+  background: gray;
+  background-color: $dropbg;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 0;
+}
+
+.main-container {
+  width: 100%;
+  .header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+  }
+  .top-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1em 0 1em;
+
+    .try-banner {
+      display: flex;
+      align-items: center;
+      border: 1px solid $dropGray;
+      padding: 6px 15px;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      &:hover {
+        color: $dropboxBlue;
+        border-color: $dropboxBlue;
+        svg {
+          fill: $dropboxBlue;
+        }
+      }
+
+      svg {
+        height: 25px;
+        color: black;
+        margin-right: 5px;
+        fill: $dropAsh;
+      }
+      p {
+        margin: 5px 0 0 0;
+        padding: 0;
+      }
+    }
+    .help-banner {
+      width: 30px;
+      border: 1px solid $dropGray;
+      cursor: pointer;
+      height: 30px;
+      padding: 4px;
+      border-radius: 5px;
+      background: #fff;
+      &:hover {
+        color: $dropboxBlue;
+        border-color: $dropboxBlue;
+        svg {
+          fill: $dropboxBlue;
+        }
+      }
+    }
+  }
+  .modal-area {
+    position: relative;
+    top: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    .modal {
+      width: 440px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(29, 39, 55, 0.25);
+      .modal-top {
+        padding: 1em;
+        border-bottom: 1px solid $dropGray;
+        .logo-area {
+          text-align: center;
+          img {
+            height: 50px;
+            margin-right: -40px;
+          }
+          span {
+            float: right;
+            border: 1px solid black;
+            padding: 0.3em 0.8em;
+            display: flex;
+            border-radius: 5px;
+            cursor: pointer;
+            fill: black;
+            &:hover {
+              border-color: $dropboxBlue;
+              svg {
+                fill: $dropboxBlue;
+              }
+            }
+          }
+        }
+        .top-info {
+          text-align: center;
+          margin: 1em 0 2em 0;
+          h2 {
+            margin: 0;
+            margin-bottom: 0.4em;
+          }
+          .size {
+            color: $dropAsh;
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+      .modal-content {
+        height: 37vh;
+        overflow-y: auto;
+        .files {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          .file {
+            display: flex;
+            padding: 1em 1em;
+            justify-content: space-between;
+            align-items: center;
+            .file-info {
+              display: flex;
+              align-items: center;
+              .file-desc {
+                .file-name,
+                .file-size {
+                  margin: 0;
+                  padding: 0;
+                }
+                .file-name {
+                  font-size: 14px;
+                  line-height: 24px;
+                }
+                .file-size {
+                  color: $dropAsh;
+                  font-size: 12px;
+                  line-height: 16px;
+                }
+              }
+              .file-img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 64px;
+                img {
+                  width: 36px;
+                  height: 36px;
+                }
+              }
+            }
+            .file-download {
+              cursor: pointer;
+              svg {
+                fill: $dropboxBlue;
+              }
+            }
+          }
+        }
+      }
+      .modal-footer {
+        border-top: 1px solid $dropGray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 2em;
+        color: $dropboxBlue;
+        p {
+          cursor: pointer;
+        }
+        button {
+          background-color: $dropboxBlue;
+          height: 40px;
+          line-height: 40px;
+          border: 0;
+          padding: 0 16px;
+          font-weight: 500;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.login-container {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  &.show {
+    display: block !important;
+  }
+  .modal {
+    padding: 1.5em;
+    background-color: #fff;
+    width: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 16px rgba(29, 39, 55, 0.25);
+    .top {
+      .close {
+        text-align: right;
+        .close-icon {
+          cursor: pointer;
+          display: inline-block;
+          font-size: 30px;
+          margin: 0;
+        }
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        .logo-image {
+          width: 39px;
+          height: 46px;
+          margin-right: 0.5em;
+        }
+        .logo-text {
+          width: 100px;
+          height: 34px;
+        }
+      }
+      .h2-banner {
+        font-family: SharpGrotesk;
+        font-size: 25px;
+        letter-spacing: 0.2px;
+        line-height: 32px;
+        margin: 0.5em 0;
+        color: #1b2833;
+        font-weight: 400;
+      }
+      .c-a {
+        .c-a-s {
+          color: $dropboxBlue;
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .login {
+      .message {
+        color: #e82110;
+        display: block;
+        font-size: 12px;
+      }
+      .form-control {
+        display: block;
+        margin-bottom: 1em;
+        .input-control {
+          display: block;
+          width: calc(100% - 1em);
+          min-height: 34px;
+          padding: 0 6px;
+          border: 1px solid $dropGray;
+          border-radius: 3px;
+        }
+        button {
+          display: block;
+          width: 100%;
+          height: 36px;
+          border: 1px solid $dropGray;
+          background-color: #fff;
+          cursor: pointer;
+          margin-bottom: 0em;
+          &:hover {
+            background-color: #f2f2f2;
+          }
+          &.sign-btn {
+            border: 0;
+            background: $dropboxBlue;
+            color: #fff;
+            &:hover {
+              background-color: #3385e8;
+            }
+          }
+          .btn-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              height: 20px;
+              margin-right: 10px;
+            }
+            p {
+              font-size: 15px;
+              margin: 0;
+            }
+          }
+        }
+      }
+      .login-checks {
+        margin-top: -0.5em;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .remember {
+          display: flex;
+          align-items: center;
+          input {
+            margin-top: -1px;
+          }
+        }
+        .forgot {
+          p {
+            cursor: pointer;
+            margin: 0;
+            color: $dropboxBlue;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

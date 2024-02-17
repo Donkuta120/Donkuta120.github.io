@@ -1,0 +1,347 @@
+@font-face {
+  font-family: AtlasGrotesk;
+  src: url("../fonts/AtlasGrotesk-Light.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: AtlasGrotesk;
+  src: url("../fonts/AtlasGrotesk-Bold.otf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: SharpGrotesk;
+  src: url("../fonts/SharpGrotesk.eot"), url("../fonts/SharpGrotesk.ttf");
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: AtlasGrotesk;
+  font-size: 14px;
+  background: gray;
+  background-color: #2f93ce;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 0;
+}
+
+.main-container {
+  width: 100%;
+}
+.main-container .header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+.main-container .top-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em 0 1em;
+}
+.main-container .top-area .try-banner {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c1c7cd;
+  padding: 6px 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.main-container .top-area .try-banner:hover {
+  color: #2f70df;
+  border-color: #2f70df;
+}
+.main-container .top-area .try-banner:hover svg {
+  fill: #2f70df;
+}
+.main-container .top-area .try-banner svg {
+  height: 25px;
+  color: black;
+  margin-right: 5px;
+  fill: #637282;
+}
+.main-container .top-area .try-banner p {
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+.main-container .top-area .help-banner {
+  width: 30px;
+  border: 1px solid #c1c7cd;
+  cursor: pointer;
+  height: 30px;
+  padding: 4px;
+  border-radius: 5px;
+  background: #fff;
+}
+.main-container .top-area .help-banner:hover {
+  color: #2f70df;
+  border-color: #2f70df;
+}
+.main-container .top-area .help-banner:hover svg {
+  fill: #2f70df;
+}
+.main-container .modal-area {
+  position: relative;
+  top: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+.main-container .modal-area .modal {
+  width: 440px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(29, 39, 55, 0.25);
+}
+.main-container .modal-area .modal .modal-top {
+  padding: 1em;
+  border-bottom: 1px solid #c1c7cd;
+}
+.main-container .modal-area .modal .modal-top .logo-area {
+  text-align: center;
+}
+.main-container .modal-area .modal .modal-top .logo-area img {
+  height: 50px;
+  margin-right: -40px;
+}
+.main-container .modal-area .modal .modal-top .logo-area span {
+  float: right;
+  border: 1px solid black;
+  padding: 0.3em 0.8em;
+  display: flex;
+  border-radius: 5px;
+  cursor: pointer;
+  fill: black;
+}
+.main-container .modal-area .modal .modal-top .logo-area span:hover {
+  border-color: #2f70df;
+}
+.main-container .modal-area .modal .modal-top .logo-area span:hover svg {
+  fill: #2f70df;
+}
+.main-container .modal-area .modal .modal-top .top-info {
+  text-align: center;
+  margin: 1em 0 2em 0;
+}
+.main-container .modal-area .modal .modal-top .top-info h2 {
+  margin: 0;
+  margin-bottom: 0.4em;
+}
+.main-container .modal-area .modal .modal-top .top-info .size {
+  color: #637282;
+  margin: 0;
+  padding: 0;
+}
+.main-container .modal-area .modal .modal-content {
+  height: 37vh;
+  overflow-y: auto;
+}
+.main-container .modal-area .modal .modal-content .files {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.main-container .modal-area .modal .modal-content .files .file {
+  display: flex;
+  padding: 1em 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-info {
+  display: flex;
+  align-items: center;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-info .file-desc .file-name,
+.main-container .modal-area .modal .modal-content .files .file .file-info .file-desc .file-size {
+  margin: 0;
+  padding: 0;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-info .file-desc .file-name {
+  font-size: 14px;
+  line-height: 24px;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-info .file-desc .file-size {
+  color: #637282;
+  font-size: 12px;
+  line-height: 16px;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-info .file-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-info .file-img img {
+  width: 36px;
+  height: 36px;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-download {
+  cursor: pointer;
+}
+.main-container .modal-area .modal .modal-content .files .file .file-download svg {
+  fill: #2f70df;
+}
+.main-container .modal-area .modal .modal-footer {
+  border-top: 1px solid #c1c7cd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  color: #2f70df;
+}
+.main-container .modal-area .modal .modal-footer p {
+  cursor: pointer;
+}
+.main-container .modal-area .modal .modal-footer button {
+  background-color: #2f70df;
+  height: 40px;
+  line-height: 40px;
+  border: 0;
+  padding: 0 16px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.login-container.show {
+  display: block !important;
+}
+.login-container .modal {
+  padding: 1.5em;
+  background-color: #fff;
+  width: 380px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 16px rgba(29, 39, 55, 0.25);
+}
+.login-container .modal .top .close {
+  text-align: right;
+}
+.login-container .modal .top .close .close-icon {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 30px;
+  margin: 0;
+}
+.login-container .modal .top .logo {
+  display: flex;
+  align-items: center;
+}
+.login-container .modal .top .logo .logo-image {
+  width: 39px;
+  height: 46px;
+  margin-right: 0.5em;
+}
+.login-container .modal .top .logo .logo-text {
+  width: 100px;
+  height: 34px;
+}
+.login-container .modal .top .h2-banner {
+  font-family: SharpGrotesk;
+  font-size: 25px;
+  letter-spacing: 0.2px;
+  line-height: 32px;
+  margin: 0.5em 0;
+  color: #1b2833;
+  font-weight: 400;
+}
+.login-container .modal .top .c-a .c-a-s {
+  color: #2f70df;
+}
+.login-container .modal .top .c-a .c-a-s:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.login-container .modal .login .message {
+  color: #e82110;
+  display: block;
+  font-size: 12px;
+}
+.login-container .modal .login .form-control {
+  display: block;
+  margin-bottom: 1em;
+}
+.login-container .modal .login .form-control .input-control {
+  display: block;
+  width: calc(100% - 1em);
+  min-height: 34px;
+  padding: 0 6px;
+  border: 1px solid #c1c7cd;
+  border-radius: 3px;
+}
+.login-container .modal .login .form-control button {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border: 1px solid #c1c7cd;
+  background-color: #fff;
+  cursor: pointer;
+  margin-bottom: 0em;
+}
+.login-container .modal .login .form-control button:hover {
+  background-color: #f2f2f2;
+}
+.login-container .modal .login .form-control button.sign-btn {
+  border: 0;
+  background: #2f70df;
+  color: #fff;
+}
+.login-container .modal .login .form-control button.sign-btn:hover {
+  background-color: #3385e8;
+}
+.login-container .modal .login .form-control button .btn-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-container .modal .login .form-control button .btn-flex img {
+  height: 20px;
+  margin-right: 10px;
+}
+.login-container .modal .login .form-control button .btn-flex p {
+  font-size: 15px;
+  margin: 0;
+}
+.login-container .modal .login .login-checks {
+  margin-top: -0.5em;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-container .modal .login .login-checks .remember {
+  display: flex;
+  align-items: center;
+}
+.login-container .modal .login .login-checks .remember input {
+  margin-top: -1px;
+}
+.login-container .modal .login .login-checks .forgot p {
+  cursor: pointer;
+  margin: 0;
+  color: #2f70df;
+  text-decoration: underline;
+}
